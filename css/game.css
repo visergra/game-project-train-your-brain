@@ -1,0 +1,148 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+  font-family: "funsized";
+  src: url("../fonts/FunSized.ttf");
+}
+
+@font-face {
+  font-family: "scretch";
+  src: url("../fonts/scretch.ttf");
+}
+
+#body {
+  background-image: url("../images/shutterstock_266491457.jpg");
+  padding: 10px;
+}
+
+h1 {
+  font-family: funsized;
+  font-size: 90px;
+  font-weight: lighter;
+  margin: 7px auto;
+  padding: 0px;
+  width: 1000px;
+}
+
+#label-level, #label-score {
+  font-family: scretch;
+  font-size: 80px;
+  vertical-align: top;
+  text-align: center;
+}
+
+#label-score {
+  margin-left: 50px;
+}
+
+#value-level, #value-score {
+  font-family: funsized;
+  font-size: 60px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+#game-board {
+  border-radius: 4px;
+  padding: 0px 10px 10px 90px;
+  width: 600px;
+  height: 720px;
+  margin: 10px auto 10px auto;
+  text-align: center;
+  background-color: #fff;
+  background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#info-game {
+  margin-bottom: 10px;
+}
+
+.cell {
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 90px;
+  margin: 5px;
+  float: left;
+  width: 90px;
+  border-radius: 50%;
+  border: 2px solid #36454F;
+  font-family: funsized;
+  font-size: 60px;
+  padding-top: 12px;
+  text-align: center;
+  vertical-align: middle;
+  visibility: hidden;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+.active {
+  visibility: visible;
+}
+
+#play {
+  width: 300px;
+  padding: 8px;
+  margin: 12px auto;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-family: funsized;
+  font-size: 60px;
+  vertical-align: bottom;
+  text-align: center;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
