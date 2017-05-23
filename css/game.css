@@ -146,7 +146,7 @@ h1 {
 .countdown {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 400px;
   font-family: funsized;
   font-size: 90px;
   visibility: hidden;
@@ -171,4 +171,16 @@ h1 {
 
 .active {
   visibility: visible;
+}
+
+.tachon {
+  background-image: url("../images/tachon.jpg");
+  background-position: center;
+  color: transparent;
+  border-color: transparent;
+}
+
+.error {
+  color: red;
+  border-color: red;
 }

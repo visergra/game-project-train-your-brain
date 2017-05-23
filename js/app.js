@@ -1,6 +1,10 @@
 window.onload = function() {
   var playButton = document.getElementById('play');
   playButton.onclick = playGame;
+  var cellsClick = document.querySelectorAll('.cell, .active');
+  for (var i = 0; i < cellsClick.length; i++) {
+    cellsClick[i].onclick = checkUserInput;
+  }
   //document.addEventListener("keydown", moveListeners);
 };
 
@@ -16,8 +20,28 @@ function showSequence() {
   });
 }
 
+function blankSequence() {
+  gameNumbers.board.forEach(function(row, rowIndex) {
+    row.forEach(function(cell, cellIndex) {
+      if (cell !== null) {
+        var numberContainer = document.getElementById(rowIndex + "-" + cellIndex);
+        numberContainer.classList.add("tachon");
+      }
+    });
+  });
+}
+
 function checkUserInput() {
-  gameNumbers.numClicks += 1;
+  var discoveredNumber = this.innerHTML;
+  if (discoveredNumber == gameNumbers.sequence[gameNumbers.numberClicks]) {
+    this.classList.remove("tachon");
+  }
+  else {
+    this.classList.remove("tachon");
+    this.classList.add("error");
+    this.innerHTML = "X";
+  }
+  gameNumbers._increaseClicks();
 }
 
 function nextLevel() {
@@ -41,6 +65,8 @@ function cleanNotebook() {
     row.forEach(function(cell, cellIndex) {
       var numberContainer = document.getElementById(rowIndex + "-" + cellIndex);
       numberContainer.classList.remove("active");
+      numberContainer.classList.remove("tachon");
+      numberContainer.classList.remove("error");
       numberContainer.innerHTML = "";
     });
   });
@@ -55,6 +81,7 @@ function countDown() {
     //temp = document.getElementById('countdown');
     countDownDiv.innerHTML = 4;
     showSequence();
+    timeoutMemorize = setTimeout(blankSequence, 2000);
     return;
   }
   seconds--;

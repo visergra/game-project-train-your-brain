@@ -19,9 +19,8 @@ function GameMemorizeNumbers() {
 
 GameMemorizeNumbers.prototype._generateSequence = function() {
   var randomSequence = _.sampleSize(this.maxSequence, this.lengthSequence);
-  this.sequence = randomSequence.sort();
+  this.sequence = randomSequence.sort(function (a, b) {return a - b;});
 };
-
 
 GameMemorizeNumbers.prototype._shuffleBoard = function() {
   var flattenedBoard = _.concat(gameNumbers.sequence, _.fill(Array((Math.pow(this.board.length, 2)) - this.lengthSequence), null));
