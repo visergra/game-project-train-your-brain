@@ -10,7 +10,7 @@ function GameMemorizeNumbers() {
   this.maxSequence = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   this.sequence = [];
   this.level = 1;
-  this.lengthSequence = this.level + 2;
+  this.lengthSequence = 3;
   this.numberClicks = 0;
   this.attemptsLeft = 3;
   this.score = 0;
@@ -33,7 +33,14 @@ GameMemorizeNumbers.prototype._decreaseAttemptsLeft = function() {
 
 GameMemorizeNumbers.prototype._increaseLevel = function() {
   this.level += 1;
-  this.resetNumberClicks();
+  this.lengthSequence += 1;
+  this._resetNumberClicks();
+};
+
+GameMemorizeNumbers.prototype._decreaseLevel = function() {
+  this.level -= 1;
+  this.lengthSequence -= 1;
+  this._resetNumberClicks();
 };
 
 GameMemorizeNumbers.prototype._resetNumberClicks = function() {

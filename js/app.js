@@ -35,22 +35,43 @@ function checkUserInput() {
   var discoveredNumber = this.innerHTML;
   if (discoveredNumber == gameNumbers.sequence[gameNumbers.numberClicks]) {
     this.classList.remove("tachon");
-  }
-  else {
+  } else {
     this.classList.remove("tachon");
     this.classList.add("error");
     this.innerHTML = "X";
+    timeoutPrevLevel = setTimeout(prevLevel, 2000);
   }
   gameNumbers._increaseClicks();
+
+  if (gameNumbers.numberClicks == gameNumbers.lengthSequence) {
+    nextLevel();
+  }
 }
 
 function nextLevel() {
+  gameNumbers._increaseLevel();
+  document.getElementById('value-level').innerHTML = gameNumbers.level;
+  gameNumbers._generateSequence();
+  gameNumbers._shuffleBoard();
+  cleanNotebook();
+  countDown();
+}
 
+function prevLevel() {
+  gameNumbers._decreaseAttemptsLeft();
+  document.getElementById('value-attempts').innerHTML = gameNumbers.attemptsLeft;
+  gameNumbers._decreaseLevel();
+  document.getElementById('value-level').innerHTML = gameNumbers.level;
+  gameNumbers._generateSequence();
+  gameNumbers._shuffleBoard();
+  cleanNotebook();
+  countDown();
 }
 
 function brainAge() {
 
 }
+
 
 function playGame() {
   gameNumbers = new GameMemorizeNumbers();

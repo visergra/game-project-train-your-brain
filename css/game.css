@@ -59,18 +59,20 @@ h1 {
   width: 1000px;
 }
 
-#label-level, #label-score {
+#label-level, #label-attempts {
   font-family: scretch;
   font-size: 80px;
   vertical-align: top;
   text-align: center;
 }
 
-#label-score {
+#label-attempts {
   margin-left: 50px;
+  font-size: 55px;
+  vertical-align: bottom;
 }
 
-#value-level, #value-score {
+#value-level, #value-attempts {
   font-family: funsized;
   font-size: 60px;
   vertical-align: bottom;
