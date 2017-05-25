@@ -1,6 +1,8 @@
 window.onload = function() {
   var playButton = document.getElementById('play');
-  playButton.onclick = playGame;
+  if (playButton.innerHTML == 'PLAY') {
+    playButton.onclick = playGame;
+  }
   var cellsClick = document.querySelectorAll('.cell, .active');
   for (var i = 0; i < cellsClick.length; i++) {
     cellsClick[i].onclick = checkUserInput;
@@ -39,7 +41,11 @@ function checkUserInput() {
     this.classList.remove("tachon");
     this.classList.add("error");
     this.innerHTML = "X";
-    timeoutPrevLevel = setTimeout(prevLevel, 2000);
+    if (gameNumbers.attemptsLeft > 1) {
+      timeoutPrevLevel = setTimeout(prevLevel, 1000);
+    } else {
+      timeoutGameOver = setTimeout(gameOver, 1000);
+    }
   }
   gameNumbers._increaseClicks();
 
@@ -60,7 +66,9 @@ function nextLevel() {
 function prevLevel() {
   gameNumbers._decreaseAttemptsLeft();
   document.getElementById('value-attempts').innerHTML = gameNumbers.attemptsLeft;
-  gameNumbers._decreaseLevel();
+  if (gameNumbers.level > 1) {
+    gameNumbers._decreaseLevel();
+  }
   document.getElementById('value-level').innerHTML = gameNumbers.level;
   gameNumbers._generateSequence();
   gameNumbers._shuffleBoard();
@@ -79,16 +87,20 @@ function playGame() {
   gameNumbers._shuffleBoard();
   cleanNotebook();
   countDown();
+  var playButton = document.getElementById('play');
+  playButton.innerHTML = "QUIT";
 }
 
 function cleanNotebook() {
+  var gameOverDiv = document.querySelector('.game-over');
+  gameOverDiv.classList.remove("active");
   gameNumbers.board.forEach(function(row, rowIndex) {
     row.forEach(function(cell, cellIndex) {
       var numberContainer = document.getElementById(rowIndex + "-" + cellIndex);
-      numberContainer.classList.remove("active");
-      numberContainer.classList.remove("tachon");
-      numberContainer.classList.remove("error");
-      numberContainer.innerHTML = "";
+      numberContainer.classList.remove('active');
+      numberContainer.classList.remove('tachon');
+      numberContainer.classList.remove('error');
+      numberContainer.innerHTML = '';
     });
   });
 }
@@ -96,9 +108,9 @@ function cleanNotebook() {
 function countDown() {
   var countDownDiv = document.querySelector('.countdown');
   var seconds = countDownDiv.innerHTML;
-  countDownDiv.classList.add("active");
+  countDownDiv.classList.add('active');
   if (seconds == 1) {
-    countDownDiv.classList.remove("active");
+    countDownDiv.classList.remove('active');
     //temp = document.getElementById('countdown');
     countDownDiv.innerHTML = 4;
     showSequence();
@@ -112,5 +124,9 @@ function countDown() {
 }
 
 function gameOver() {
-
+  var playButton = document.getElementById('play');
+  playButton.innerHTML = 'PLAY';
+  var gameOverDiv = document.querySelector('.game-over');
+  gameOverDiv.innerHTML = 'GAME OVER!';
+  gameOverDiv.classList.add('active');
 }
