@@ -1,5 +1,5 @@
 window.onload = function() {
-  var playButton = document.getElementById('play');
+  var playButton = document.getElementById('play-memorize');
   if (playButton.innerHTML == 'PLAY') {
     playButton.onclick = playGame;
   }
@@ -49,7 +49,7 @@ function checkUserInput() {
   }
   gameNumbers._increaseClicks();
 
-  if (gameNumbers.numberClicks == gameNumbers.lengthSequence) {
+  if (gameNumbers.numberClicks == gameNumbers.lengthSequence && gameNumbers.attemptsLeft > 1) {
     nextLevel();
   }
 }
@@ -70,6 +70,7 @@ function prevLevel() {
     gameNumbers._decreaseLevel();
   }
   document.getElementById('value-level').innerHTML = gameNumbers.level;
+  gameNumbers._resetNumberClicks();
   gameNumbers._generateSequence();
   gameNumbers._shuffleBoard();
   cleanNotebook();
@@ -87,7 +88,7 @@ function playGame() {
   gameNumbers._shuffleBoard();
   cleanNotebook();
   countDown();
-  var playButton = document.getElementById('play');
+  var playButton = document.getElementById('play-memorize');
   playButton.innerHTML = "QUIT";
 }
 
@@ -124,9 +125,9 @@ function countDown() {
 }
 
 function gameOver() {
-  var playButton = document.getElementById('play');
+  cleanNotebook();
+  var playButton = document.getElementById('play-memorize');
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');
-  gameOverDiv.innerHTML = 'GAME OVER!';
   gameOverDiv.classList.add('active');
 }

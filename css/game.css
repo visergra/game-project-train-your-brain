@@ -45,38 +45,34 @@ table {
   src: url("../fonts/scretch.ttf");
 }
 
+@font-face {
+  font-family: "saucer";
+  src: url("../fonts/SaucerBB.ttf");
+}
+
+@font-face {
+  font-family: "drawing";
+  src: url("../fonts/DrawingGuides.ttf");
+}
+
+/*General style*/
 #body {
   background-image: url("../images/shutterstock_266491457.jpg");
   padding: 10px;
 }
 
-h1 {
+a {
+  color: black;
+}
+
+#train-brain-title {
   font-family: funsized;
   font-size: 90px;
   font-weight: lighter;
   margin: 7px auto;
+  text-align: center;
   padding: 0px;
   width: 1000px;
-}
-
-#label-level, #label-attempts {
-  font-family: scretch;
-  font-size: 80px;
-  vertical-align: top;
-  text-align: center;
-}
-
-#label-attempts {
-  margin-left: 50px;
-  font-size: 55px;
-  vertical-align: bottom;
-}
-
-#value-level, #value-attempts {
-  font-family: funsized;
-  font-size: 60px;
-  vertical-align: bottom;
-  text-align: center;
 }
 
 #game-board {
@@ -123,6 +119,37 @@ h1 {
   margin-bottom: 10px;
 }
 
+/*Memorize numbers style*/
+#memorize-title {
+  font-family: drawing;
+  font-size: 90px;
+  font-weight: normal;
+  margin: 7px auto;
+  padding: 0px;
+  text-align: center;
+  width: 1000px;
+}
+
+#label-level, #label-attempts {
+  font-family: scretch;
+  font-size: 80px;
+  vertical-align: top;
+  text-align: center;
+}
+
+#label-attempts {
+  margin-left: 50px;
+  font-size: 55px;
+  vertical-align: bottom;
+}
+
+#value-level, #value-attempts {
+  font-family: funsized;
+  font-size: 60px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
 .cell {
   border-radius: 4px;
   box-sizing: border-box;
@@ -154,14 +181,14 @@ h1 {
   visibility: hidden;
 }
 
-#play {
+#play-memorize {
   width: 300px;
   padding: 8px;
   margin: 12px auto;
   border: 2px solid black;
   border-radius: 15px;
-  font-family: funsized;
-  font-size: 60px;
+  font-family: drawing;
+  font-size: 80px;
   vertical-align: bottom;
   text-align: center;
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
@@ -171,8 +198,13 @@ h1 {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
 }
 
-.active {
-  visibility: visible;
+#memorize-numbers {
+  width: 280px;
+  text-align: center;
+  display: inline-block;
+  font-family: drawing;
+  font-size: 60px;
+  margin-top: 40px;
 }
 
 .tachon {
@@ -182,16 +214,99 @@ h1 {
   border-color: transparent;
 }
 
-.game-over {
-  position: absolute;
-  left: 50%;
-  top: 400px;
-  font-family: funsized;
-  font-size: 90px;
-  visibility: hidden;
-}
-
 .error {
   color: red;
   border-color: red;
+}
+
+/*Mental maths styyle*/
+
+#maths-title {
+  font-family: saucer;
+  font-size: 90px;
+  font-weight: normal;
+  margin: 7px auto;
+  padding: 0px;
+  text-align: center;
+  width: 1000px;
+}
+
+#input-result {
+  width: 400px;
+  border: 2px solid #36454F;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#number-keys {
+  width: 400px;
+}
+
+.cell-number {
+  /*border-radius: 4px;
+  border-radius: 50%;*/
+  box-sizing: border-box;
+  height: 90px;
+  margin: 5px;
+  float: left;
+  width: 90px;
+  border: 2px solid #36454F;
+  font-family: funsized;
+  font-size: 60px;
+  padding-top: 12px;
+  text-align: center;
+  vertical-align: middle;
+  /*visibility: hidden;*/
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#play-maths {
+  width: 300px;
+  padding: 8px;
+  margin: 12px auto;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-family: saucer;
+  font-size: 80px;
+  vertical-align: bottom;
+  text-align: center;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#mental-maths {
+  width: 280px;
+  text-align: center;
+  display: inline-block;
+  font-family: saucer;
+  font-size: 60px;
+  margin-top: 40px;
+}
+
+.game-over {
+  position: absolute;
+  left: 31%;
+  top: 400px;
+  font-family: funsized;
+  font-size: 80px;
+  visibility: hidden;
+}
+
+#choose-game {
+  text-align: center;
+  font-family: funsized;
+  font-size: 45px;
+  padding-top: 100px;
+  margin-bottom: 50px;
+}
+
+.active {
+  visibility: visible;
 }

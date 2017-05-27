@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/game.css">
+  <title>Mental Maths</title>
+</head>
+
+<body>
+  <h1 id="maths-title">Mental Maths</h1>
+  <div id=body>
+    <article id="game-board">
+      <div id="info-game">
+        <span id="label-level">Level</span><span id="value-level">1</span><span id="label-attempts">Attempts</span><span id="value-attempts">3</span>
+      </div>
+      <div id="active-operation"></div>
+      <div id="queue1-operation"></div>
+      <div id="queue2-operation"></div>
+      <div id="input-result"></div>
+      <div id="number-keys">
+        <div class="row-numbers">
+          <div class="cell-number" id="1">1</div>
+          <div class="cell-number" id="2">2</div>
+          <div class="cell-number" id="3">3</div>
+          <div class="cell-number" id="V">V</div>
+        </div>
+        <div class="row-numbers">
+          <div class="cell-number" id="4">4</div>
+          <div class="cell-number" id="5">5</div>
+          <div class="cell-number" id="6">6</div>
+          <div class="cell-number" id="C">C</div>
+        </div>
+        <div class="row-numbers">
+          <div class="cell-number" id="7">7</div>
+          <div class="cell-number" id="8">8</div>
+          <div class="cell-number" id="9">9</div>
+          <div class="cell-number" id="0">0</div>
+        </div>
+      </div>
+      <div class="countdown">4</div>
+      <div class="game-over">GAME OVER!</div>
+    </article>
+  </div>
+  <p id="play-maths">PLAY</p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.js"></script>
+  <script src="js/gameMentalMaths.js"></script>
+  <script src="js/appMentalMaths.js"></script>
+</body>
+
+</html>
