@@ -55,14 +55,42 @@ table {
   src: url("../fonts/DrawingGuides.ttf");
 }
 
+
 /*General style*/
+
 #body {
-  background-image: url("../images/shutterstock_266491457.jpg");
+  /*background-image: url("../images/shutterstock_266491457.jpg");*/
+  background-image: url("../images/shutterstock_611146274.jpg");
   padding: 10px;
 }
 
 a {
   color: black;
+}
+
+.choose-game {
+  width: 400px;
+  text-align: center;
+  font-family: funsized;
+  font-size: 45px;
+  padding-top: 100px;
+  margin-bottom: 50px;
+  margin: 0 auto;
+}
+
+.down-arrow:after {
+  content: '';
+  display: block;
+  /*position: absolute;*/
+  left: 0;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-top: 30px solid;
+  border-right: 100px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 100px solid transparent;
+  margin: 10px auto 0 auto;
 }
 
 #train-brain-title {
@@ -119,7 +147,9 @@ a {
   margin-bottom: 10px;
 }
 
+
 /*Memorize numbers style*/
+
 #memorize-title {
   font-family: drawing;
   font-size: 90px;
@@ -219,6 +249,7 @@ a {
   border-color: red;
 }
 
+
 /*Mental maths styyle*/
 
 #maths-title {
@@ -232,31 +263,105 @@ a {
 }
 
 #input-result {
-  width: 400px;
+  width: 470px;
+  height: 60px;
+  margin-left: 5px;
   border: 2px solid #36454F;
   text-align: center;
   vertical-align: middle;
+  margin: 60px auto 5px auto;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
 }
 
 #number-keys {
-  width: 400px;
+  width: 480px;
+  margin: 0 auto;
 }
 
 .cell-number {
   /*border-radius: 4px;
   border-radius: 50%;*/
   box-sizing: border-box;
-  height: 90px;
+  height: 70px;
   margin: 5px;
   float: left;
-  width: 90px;
+  width: 70px;
   border: 2px solid #36454F;
   font-family: funsized;
-  font-size: 60px;
-  padding-top: 12px;
+  font-size: 50px;
+  padding-top: 8px;
   text-align: center;
   vertical-align: middle;
   /*visibility: hidden;*/
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#arrow-div {
+  text-align: center;
+  margin: 0 auto;
+}
+
+@keyframes blink {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+#arrow {
+  position: absolute;
+  left: 50%;
+  margin-left: -260px;
+  top: 300px;
+  animation: blink 1.2s infinite 200ms;
+}
+
+#active-operation {
+  display: inline-block;
+  width: 300px;
+  height: 85px;
+  border: 2px solid #36454F;
+  text-align: center;
+  margin: 70px auto 0 auto;
+  vertical-align: middle;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  font-family: funsized;
+  padding-top: 20px;
+  font-size: 60px
+}
+
+#queue1-operation {
+  width: 200px;
+  height: 60px;
+  margin: 15px auto 0 auto;
+  border: 2px solid #36454F;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#queue2-operation {
+  width: 200px;
+  height: 60px;
+  margin: 0 auto;
+  border: 2px solid #36454F;
+  text-align: center;
+  margin: 15px auto 0 auto;
+  vertical-align: middle;
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
@@ -297,14 +402,6 @@ a {
   font-family: funsized;
   font-size: 80px;
   visibility: hidden;
-}
-
-#choose-game {
-  text-align: center;
-  font-family: funsized;
-  font-size: 45px;
-  padding-top: 100px;
-  margin-bottom: 50px;
 }
 
 .active {
