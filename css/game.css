@@ -310,15 +310,19 @@ a {
 }
 
 @keyframes blink {
-  from {opacity: 1;}
-  to {opacity: 0;}
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 #arrow {
   position: absolute;
   left: 50%;
   margin-left: -260px;
-  top: 300px;
+  top: 290px;
   animation: blink 1.2s infinite 200ms;
 }
 
@@ -329,15 +333,28 @@ a {
   border: 2px solid #36454F;
   text-align: center;
   margin: 70px auto 0 auto;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#active-value1, #active-value2 {
   font-family: funsized;
-  padding-top: 20px;
-  font-size: 60px
+  font-size: 60px;
+  vertical-align: middle;
+  position: relative;
+  line-height: 85px;
+}
+
+#active-operator {
+  color: black;
+  font-size: 70px;
+  vertical-align: middle;
+  position: relative;
+  font-family: Helvetica;
 }
 
 #queue1-operation {
@@ -354,6 +371,20 @@ a {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
 }
 
+#queue1-operator {
+  color: black;
+  font-size: 60px;
+  font-family: Helvetica;
+  vertical-align: middle;
+}
+
+#queue1-value {
+  vertical-align: middle;
+  color: black;
+  font-size: 50px;
+  font-family: funsized;
+}
+
 #queue2-operation {
   width: 200px;
   height: 60px;
@@ -367,6 +398,20 @@ a {
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+#queue2-operator {
+  color: black;
+  font-size: 60px;
+  font-family: Helvetica;
+  vertical-align: middle;
+}
+
+#queue2-value {
+  vertical-align: middle;
+  color: black;
+  font-size: 50px;
+  font-family: funsized;
 }
 
 #play-maths {

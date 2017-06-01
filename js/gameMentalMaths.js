@@ -1,30 +1,49 @@
 function GameMemorizeNumbers() {
-  this.board = [
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-  ];
-  this.maxSequence = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  this.sequence = [];
+  this.actualValue = 0;
+  this.activeOperator = ''
+  this.activeValue2 = 0;
+  this.queue1Operator = '';
+  this.queue1Value = 0;
+  this.queue2Operator = '';
+  this.queue2Value = 0;
   this.level = 1;
-  this.lengthSequence = 3;
-  this.numberClicks = 0;
   this.attemptsLeft = 3;
   this.score = 0;
   this.gameOver = false;
 }
 
-GameMemorizeNumbers.prototype._generateSequence = function() {
-  var randomSequence = _.sampleSize(this.maxSequence, this.lengthSequence);
-  this.sequence = randomSequence.sort(function (a, b) {return a - b;});
+GameMemorizeNumbers.prototype._getRandomOperation = function(value1) {
+  var randomOperation = {
+    operator: '',
+    value2: 0,
+    result: 0
+  };
+  var validOperation = false;
+  while (validOperation === false) {
+    var operator = _.sample(['+', '-', '/', '*']);
+    var value2 = _.random(1, 9);
+    var tmpResult = this._doOperation(value1, value2, operator);
+
+    if (_.isInteger(tmpResult)){
+      validOperation = true;
+      randomOperation.operator = operator;
+      randomOperation.value2 = value2;
+      randomOperation.result = tmpResult;
+      return randomOperation;
+    }
+  }
 };
 
-GameMemorizeNumbers.prototype._shuffleBoard = function() {
-  var flattenedBoard = _.concat(gameNumbers.sequence, _.fill(Array((Math.pow(this.board.length, 2)) - this.lengthSequence), null));
-  this.board = _.chunk(_.shuffle(flattenedBoard), this.board.length);
+GameMemorizeNumbers.prototype._doOperation = function(value1, value2, operator) {
+  if (operator == '+') {
+    return value1 + value2;
+  } else if (operator == '-') {
+    return value1 - value2;
+  } else if (operator == '*') {
+    return value1 * value2;
+  } else if (operator == '/') {
+    return value1 / value2;
+  }
 };
 
 GameMemorizeNumbers.prototype._decreaseAttemptsLeft = function() {
@@ -33,27 +52,13 @@ GameMemorizeNumbers.prototype._decreaseAttemptsLeft = function() {
 
 GameMemorizeNumbers.prototype._increaseLevel = function() {
   this.level += 1;
-  this.lengthSequence += 1;
-  this._resetNumberClicks();
 };
 
 GameMemorizeNumbers.prototype._decreaseLevel = function() {
   this.level -= 1;
-  this.lengthSequence -= 1;
-  this._resetNumberClicks();
-};
-
-GameMemorizeNumbers.prototype._resetNumberClicks = function() {
-  this.numberClicks = 0;
-};
-
-GameMemorizeNumbers.prototype._increaseClicks = function() {
-  this.numberClicks += 1;
 };
 
 GameMemorizeNumbers.prototype._resetGame = function() {
-  this.sequence = [];
-  this.numberClicks = 0;
   this.level = 1;
   this.attemptsLeft = 3;
   this.score = 0;

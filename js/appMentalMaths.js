@@ -1,5 +1,5 @@
 window.onload = function() {
-  var playButton = document.getElementById('play-memorize');
+  var playButton = document.getElementById('play-maths');
   if (playButton.innerHTML == 'PLAY') {
     playButton.onclick = playGame;
   }
@@ -81,15 +81,22 @@ function brainAge() {
 
 }
 
-
 function playGame() {
-  gameNumbers = new GameMemorizeNumbers();
-  gameNumbers._generateSequence();
-  gameNumbers._shuffleBoard();
-  cleanNotebook();
+  gameMaths = new gameMentalMaths();
+  generateInitialLevel();
   countDown();
   var playButton = document.getElementById('play-memorize');
   playButton.innerHTML = "QUIT";
+}
+
+function generateInitialLevel() {
+  gameMaths.actualValue = _.random(1, 9);
+  var activeOperationObj = gameMaths._getRandomOperation(gameMaths.actualValue);
+  document.getElementById('active-value1').innerHTML = gameMaths.actualValue;
+  document.getElementById('active-value2').innerHTML = activeOperationObj.value2;
+  document.getElementById('active-operator').innerHTML = activeOperationObj.value2;
+  var queue1OperationObj = gameMaths._getRandomOperation(activeOperationObj.result);
+  var queue2OperationObj = gameMaths._getRandomOperation(queue1OperationObj.result);
 }
 
 function cleanNotebook() {
