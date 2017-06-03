@@ -3,34 +3,24 @@ window.onload = function() {
   if (playButton.innerHTML == 'PLAY') {
     playButton.onclick = playGame;
   }
-  var cellsClick = document.querySelectorAll('.cell, .active');
-  for (var i = 0; i < cellsClick.length; i++) {
-    cellsClick[i].onclick = checkUserInput;
+  var cellsClickNumber = document.querySelectorAll('.cell-number');
+  for (var i = 0; i < cellsClickNumber.length; i++) {
+    cellsClickNumber[i].onclick = writeResult;
   }
-  //document.addEventListener("keydown", moveListeners);
+
+  var cellsClickDel = document.querySelectorAll('.cell-del');
+  cellsClickDel[0].onclick = deleteResult;
+
+  var cellsClickSend = document.querySelectorAll('.cell-send');
+  cellsClickSend[0].onclick = checkUserInput;
 };
 
-function showSequence() {
-  gameNumbers.board.forEach(function(row, rowIndex) {
-    row.forEach(function(cell, cellIndex) {
-      if (cell !== null) {
-        var numberContainer = document.getElementById(rowIndex + "-" + cellIndex);
-        numberContainer.classList.add("active");
-        numberContainer.innerHTML = cell;
-      }
-    });
-  });
+function writeResult() {
+  document.getElementsByClassName('input-result')[0].innerHTML += this.innerHTML;
 }
 
-function blankSequence() {
-  gameNumbers.board.forEach(function(row, rowIndex) {
-    row.forEach(function(cell, cellIndex) {
-      if (cell !== null) {
-        var numberContainer = document.getElementById(rowIndex + "-" + cellIndex);
-        numberContainer.classList.add("tachon");
-      }
-    });
-  });
+function deleteResult() {
+  document.getElementsByClassName('input-result')[0].innerHTML = null;
 }
 
 function checkUserInput() {
@@ -82,22 +72,49 @@ function brainAge() {
 }
 
 function playGame() {
-  gameMaths = new gameMentalMaths();
-  generateInitialLevel();
+  gameMaths = new GameMentalMaths();
   countDown();
-  var playButton = document.getElementById('play-memorize');
+  //generateInitialLevel()
+  var playButton = document.getElementById('play-maths');
   playButton.innerHTML = "QUIT";
 }
 
 function generateInitialLevel() {
   gameMaths.actualValue = _.random(1, 9);
   var activeOperationObj = gameMaths._getRandomOperation(gameMaths.actualValue);
-  document.getElementById('active-value1').innerHTML = gameMaths.actualValue;
-  document.getElementById('active-value2').innerHTML = activeOperationObj.value2;
-  document.getElementById('active-operator').innerHTML = activeOperationObj.value2;
   var queue1OperationObj = gameMaths._getRandomOperation(activeOperationObj.result);
   var queue2OperationObj = gameMaths._getRandomOperation(queue1OperationObj.result);
+
+  storeOperations(activeOperationObj, queue1OperationObj, queue2OperationObj);
+  visualizeElements(activeOperationObj, queue1OperationObj, queue2OperationObj);
 }
+
+function visualizeElements (activeOperationObj, queue1OperationObj, queue2OperationObj) {
+  document.getElementById('active-value1').innerHTML = gameMaths.actualValue;
+  document.getElementById('active-value2').innerHTML = activeOperationObj.value2;
+  document.getElementById('active-operator').innerHTML = activeOperationObj.operator;
+  document.getElementById('queue1-value').innerHTML = queue1OperationObj.value2;
+  document.getElementById('queue1-operator').innerHTML = queue1OperationObj.operator;
+  document.getElementById('queue2-value').innerHTML = queue2OperationObj.value2;
+  document.getElementById('queue2-operator').innerHTML = queue2OperationObj.operator;
+  document.getElementsByClassName('active-operation')[0].classList.add('active');
+  document.getElementsByClassName('queue1-operation')[0].classList.add('active');
+  document.getElementsByClassName('queue2-operation')[0].classList.add('active');
+  document.getElementsByClassName('arrow-div')[0].classList.add('active');
+  document.getElementsByClassName('input-result')[0].classList.add('active');
+  var cellNumber = document.querySelectorAll('.cell-number, .cell-send, .cell-del');
+  cellNumber.forEach(function(value) {
+    value.classList.add('active');
+  });
+}
+
+function storeOperations (activeOperationObj, queue1OperationObj, queue2OperationObj) {
+  gameMaths._storeActiveOperation(activeOperationObj.value2, activeOperationObj.operator, activeOperationObj.result);
+  gameMaths._storeQueue1Operation(queue1OperationObj.value2, queue1OperationObj.operator);
+  gameMaths._storeQueue2Operation(queue2OperationObj.value2, queue2OperationObj.operator);
+}
+
+
 
 function cleanNotebook() {
   var gameOverDiv = document.querySelector('.game-over');
@@ -121,8 +138,8 @@ function countDown() {
     countDownDiv.classList.remove('active');
     //temp = document.getElementById('countdown');
     countDownDiv.innerHTML = 4;
-    showSequence();
-    timeoutMemorize = setTimeout(blankSequence, 2000);
+    generateInitialLevel();
+    //timeoutMaths = setTimeout(blankSequence, 2000);
     return;
   }
   seconds--;

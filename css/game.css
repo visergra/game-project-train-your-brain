@@ -262,19 +262,23 @@ a {
   width: 1000px;
 }
 
-#input-result {
+.input-result {
   width: 470px;
   height: 60px;
   margin-left: 5px;
   border: 2px solid #36454F;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: bottom;
   margin: 60px auto 5px auto;
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  font-family: funsized;
+  font-size: 50px;
+  visibility: hidden;
+  line-height: 60px;
 }
 
 #number-keys {
@@ -282,7 +286,7 @@ a {
   margin: 0 auto;
 }
 
-.cell-number {
+.cell-number, .cell-send, .cell-del {
   /*border-radius: 4px;
   border-radius: 50%;*/
   box-sizing: border-box;
@@ -302,11 +306,13 @@ a {
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  visibility: hidden;
 }
 
-#arrow-div {
+.arrow-div {
   text-align: center;
   margin: 0 auto;
+  visibility: hidden;
 }
 
 @keyframes blink {
@@ -326,7 +332,7 @@ a {
   animation: blink 1.2s infinite 200ms;
 }
 
-#active-operation {
+.active-operation {
   display: inline-block;
   width: 300px;
   height: 85px;
@@ -339,6 +345,7 @@ a {
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  visibility: hidden;
 }
 
 #active-value1, #active-value2 {
@@ -357,7 +364,7 @@ a {
   font-family: Helvetica;
 }
 
-#queue1-operation {
+.queue1-operation {
   width: 200px;
   height: 60px;
   margin: 15px auto 0 auto;
@@ -369,6 +376,7 @@ a {
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  visibility: hidden;
 }
 
 #queue1-operator {
@@ -385,7 +393,7 @@ a {
   font-family: funsized;
 }
 
-#queue2-operation {
+.queue2-operation {
   width: 200px;
   height: 60px;
   margin: 0 auto;
@@ -398,6 +406,7 @@ a {
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  visibility: hidden;
 }
 
 #queue2-operator {
