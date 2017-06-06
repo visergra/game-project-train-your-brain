@@ -286,7 +286,7 @@ a {
   margin: 0 auto;
 }
 
-.cell-number, .cell-send, .cell-del {
+.cell-number {
   /*border-radius: 4px;
   border-radius: 50%;*/
   box-sizing: border-box;
@@ -299,6 +299,29 @@ a {
   font-size: 50px;
   padding-top: 8px;
   text-align: center;
+  vertical-align: top;
+  /*visibility: hidden;*/
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  visibility: hidden;
+}
+
+.cell-send {
+  color: green;
+  font-size: 70px;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  height: 70px;
+  margin: 5px;
+  float: left;
+  width: 70px;
+  border: 2px solid #36454F;
+  padding-top: 8px;
+  text-align: center;
   vertical-align: middle;
   /*visibility: hidden;*/
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
@@ -307,6 +330,33 @@ a {
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   visibility: hidden;
+  line-height: 35px;
+}
+
+.cell-del {
+  color: red;
+  font-family: Arial;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  height: 70px;
+  margin: 5px;
+  float: left;
+  width: 70px;
+  border: 2px solid #36454F;
+  padding-top: 8px;
+  text-align: center;
+  vertical-align: middle;
+  /*visibility: hidden;*/
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  visibility: hidden;
+  line-height: 45px;
 }
 
 .arrow-div {

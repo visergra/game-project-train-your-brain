@@ -5,8 +5,10 @@ function GameMentalMaths() {
   this.activeValue2 = 0;
   this.queue1Operator = '';
   this.queue1Value = 0;
+  this.queue1Result = 0;
   this.queue2Operator = '';
   this.queue2Value = 0;
+  this.queue2Result = 0;
   this.level = 1;
   this.attemptsLeft = 3;
   this.score = 0;
@@ -15,18 +17,20 @@ function GameMentalMaths() {
 
 GameMentalMaths.prototype._storeActiveOperation = function(value2, operator, result) {
   this.actualResult = result;
-  this.activeOperator = operator
+  this.activeOperator = operator;
   this.activeValue2 = value2;
 };
 
-GameMentalMaths.prototype._storeQueue1Operation = function(value2, operator) {
+GameMentalMaths.prototype._storeQueue1Operation = function(value2, operator, result) {
   this.queue1Value = value2;
-  this.queue1Operator = operator
+  this.queue1Operator = operator;
+  this.queue1Result = result;
 };
 
-GameMentalMaths.prototype._storeQueue2Operation = function(value2, operator) {
+GameMentalMaths.prototype._storeQueue2Operation = function(value2, operator, result) {
   this.queue2Value = value2;
-  this.queue2Operator = operator
+  this.queue2Operator = operator;
+  this.queue2Result = result;
 };
 
     GameMentalMaths.prototype._getRandomOperation = function(value1) {
@@ -41,7 +45,7 @@ GameMentalMaths.prototype._storeQueue2Operation = function(value2, operator) {
         var value2 = _.random(1, 9);
         var tmpResult = this._doOperation(value1, value2, operator);
 
-        if (_.isInteger(tmpResult)) {
+        if (_.isInteger(tmpResult) && tmpResult > 0 && tmpResult <= 25) {
           validOperation = true;
           randomOperation.operator = operator;
           randomOperation.value2 = value2;
@@ -63,16 +67,16 @@ GameMentalMaths.prototype._storeQueue2Operation = function(value2, operator) {
       }
     };
 
+    GameMentalMaths.prototype._increaseScore = function() {
+      this.score += 1;
+    };
+
     GameMentalMaths.prototype._decreaseAttemptsLeft = function() {
       this.attemptsLeft -= 1;
     };
 
-    GameMentalMaths.prototype._increaseLevel = function() {
-      this.level += 1;
-    };
-
-    GameMentalMaths.prototype._decreaseLevel = function() {
-      this.level -= 1;
+    GameMentalMaths.prototype._updateLevel = function() {
+      this.level = Math.floor(this.score / 3) + 1;
     };
 
     GameMentalMaths.prototype._resetGame = function() {
