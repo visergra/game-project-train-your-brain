@@ -1,9 +1,8 @@
 window.onload = function() {
   var timeoutRound;
   var playButton = document.getElementById('play-maths');
-  if (playButton.innerHTML == 'PLAY') {
-    playButton.onclick = playGame;
-  }
+  playButton.onclick = playOrQuit;
+
   var cellsClickNumber = document.querySelectorAll('.cell-number');
   for (var i = 0; i < cellsClickNumber.length; i++) {
     cellsClickNumber[i].onclick = writeResult;
@@ -16,10 +15,22 @@ window.onload = function() {
   cellsClickSend[0].onclick = checkUserInput;
 };
 
+function playOrQuit (){
+  var playButton = document.getElementById('play-maths');
+  if (playButton.innerHTML == 'PLAY') {
+    playGame();
+  }else {
+    quitGame();
+  }
+
+};
+
 function playGame() {
   gameMaths = new GameMentalMaths();
   countDown();
   //generateInitialLevel()
+  var gameOverDiv = document.querySelector('.game-over');
+  gameOverDiv.classList.remove('active');
   var playButton = document.getElementById('play-maths');
   playButton.innerHTML = "QUIT";
 }
@@ -65,7 +76,7 @@ function deleteResult() {
 }
 
 function checkUserInput() {
-  clearTimeout (timeoutRound);
+  clearTimeout(timeoutRound);
   if (document.getElementsByClassName('input-result')[0].innerHTML == gameMaths.actualResult) {
     resultCorrect();
   } else {
@@ -79,14 +90,14 @@ function checkNextLevel() {
 }
 
 function resultIncorrect() {
-    if (gameMaths.attemptsLeft > 1) {
-      gameMaths._decreaseAttemptsLeft();
-      deleteResult();
-      document.getElementById('value-attempts').innerHTML = gameMaths.attemptsLeft;
-      generateInitialLevel();
-    } else {
-      gameOver();
-    }
+  if (gameMaths.attemptsLeft > 1) {
+    gameMaths._decreaseAttemptsLeft();
+    deleteResult();
+    document.getElementById('value-attempts').innerHTML = gameMaths.attemptsLeft;
+    generateInitialLevel();
+  } else {
+    gameOver();
+  }
 }
 
 function resultCorrect() {
@@ -181,4 +192,8 @@ function gameOver() {
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');
   gameOverDiv.classList.add('active');
+}
+
+function quitGame() {
+  window.location.href = 'index.html';
 }
