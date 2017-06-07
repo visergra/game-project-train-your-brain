@@ -1,13 +1,15 @@
 window.onload = function() {
   var playButton = document.getElementById('play-memorize');
+  playButton.onclick = playOrQuit;
+};
+
+function playOrQuit() {
+  var playButton = document.getElementById('play-memorize');
   if (playButton.innerHTML == 'PLAY') {
-    playButton.onclick = playGame;
+    playGame();
+  } else {
+    quitGame();
   }
-  var cellsClick = document.querySelectorAll('.cell, .active');
-  for (var i = 0; i < cellsClick.length; i++) {
-    cellsClick[i].onclick = checkUserInput;
-  }
-  //document.addEventListener("keydown", moveListeners);
 };
 
 function showSequence() {
@@ -28,6 +30,7 @@ function blankSequence() {
       if (cell !== null) {
         var numberContainer = document.getElementById(rowIndex + "-" + cellIndex);
         numberContainer.classList.add("tachon");
+        numberContainer.onclick = checkUserInput;
       }
     });
   });
@@ -50,7 +53,7 @@ function checkUserInput() {
   gameNumbers._increaseClicks();
 
   if (gameNumbers.numberClicks == gameNumbers.lengthSequence && gameNumbers.attemptsLeft > 1) {
-    nextLevel();
+    setTimeout(nextLevel, 1000);
   }
 }
 
@@ -112,14 +115,12 @@ function countDown() {
   countDownDiv.classList.add('active');
   if (seconds == 1) {
     countDownDiv.classList.remove('active');
-    //temp = document.getElementById('countdown');
     countDownDiv.innerHTML = 4;
     showSequence();
     timeoutMemorize = setTimeout(blankSequence, 2000);
     return;
   }
   seconds--;
-  //temp = document.getElementsByClassName('countdown');
   countDownDiv.innerHTML = seconds;
   timeoutCountDown = setTimeout(countDown, 1000);
 }
@@ -130,4 +131,8 @@ function gameOver() {
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');
   gameOverDiv.classList.add('active');
+}
+
+function quitGame() {
+  window.location.href = 'index.html';
 }

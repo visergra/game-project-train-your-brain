@@ -15,14 +15,13 @@ window.onload = function() {
   cellsClickSend[0].onclick = checkUserInput;
 };
 
-function playOrQuit (){
+function playOrQuit() {
   var playButton = document.getElementById('play-maths');
   if (playButton.innerHTML == 'PLAY') {
     playGame();
-  }else {
+  } else {
     quitGame();
   }
-
 };
 
 function playGame() {
