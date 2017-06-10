@@ -1,7 +1,7 @@
 window.onload = function() {
   var playButton = document.getElementById('play-memorize');
   playButton.onclick = playOrQuit;
-loadSounds();
+  loadSounds();
 };
 
 function loadSounds() {
@@ -14,7 +14,7 @@ function loadSounds() {
 
     path: "../lib/ion.sound-3.0.7/sounds/",
     preload: true,
-    volume: 100.0
+    volume: 4.0
   });
 }
 
@@ -141,12 +141,12 @@ function countDown() {
     countDownDiv.classList.remove('active');
     countDownDiv.innerHTML = 4;
     showSequence();
+    ion.sound.play("bell_ring");
     timeoutMemorize = setTimeout(blankSequence, 2000);
     return;
   }
   seconds--;
   countDownDiv.innerHTML = seconds;
-  ion.sound.play("bell_ring");
   timeoutCountDown = setTimeout(countDown, 1000);
 }
 
