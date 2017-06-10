@@ -12,7 +12,7 @@ function loadSounds() {
       name: "tap"
     }],
 
-    path: "../lib/sounds/",
+    path: "lib/sounds/",
     preload: true,
     volume: 4.0
   });
