@@ -97,11 +97,11 @@ function prevLevel() {
 }
 
 function brainAge() {
-  if (gameMaths.level > 0 && gameMaths.level < 5) {
+  if (gameNumbers.level > 0 && gameNumbers.level < 5) {
     document.getElementById('brain-age').innerHTML = "You should train more";
-  } else if (gameMaths.level >= 5 && gameMaths.level <= 7) {
+  } else if (gameNumbers.level >= 5 && gameNumbers.level <= 7) {
     document.getElementById('brain-age').innerHTML = "Your brain is in good shape";
-  } else if (gameMaths.level > 7) {
+  } else if (gameNumbers.level > 7) {
     document.getElementById('brain-age').innerHTML = "Your brain is like Einstein 's!";
   }
 }
