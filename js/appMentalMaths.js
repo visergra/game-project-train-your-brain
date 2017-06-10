@@ -13,7 +13,26 @@ window.onload = function() {
 
   var cellsClickSend = document.querySelectorAll('.cell-send');
   cellsClickSend[0].onclick = checkUserInput;
+  loadSounds();
 };
+
+function loadSounds() {
+  ion.sound({
+    sounds: [{
+      name: "bell_ring"
+    }, {
+      name: "correct-answer"
+    }, {
+      name: "error-sound"
+    }, {
+      name: "failure-trumpet"
+    }],
+
+    path: "lib/sounds/",
+    preload: true,
+    volume: 3.0
+  });
+}
 
 function playOrQuit() {
   var playButton = document.getElementById('play-maths');
@@ -40,14 +59,12 @@ function countDown() {
   countDownDiv.classList.add('active');
   if (seconds == 1) {
     countDownDiv.classList.remove('active');
-    //temp = document.getElementById('countdown');
     countDownDiv.innerHTML = 4;
+    ion.sound.play("bell_ring");
     generateInitialLevel();
-    //timeoutMaths = setTimeout(blankSequence, 2000);
     return;
   }
   seconds--;
-  //temp = document.getElementsByClassName('countdown');
   countDownDiv.innerHTML = seconds;
   timeoutCountDown = setTimeout(countDown, 1000);
 }
@@ -90,6 +107,7 @@ function checkNextLevel() {
 
 function resultIncorrect() {
   if (gameMaths.attemptsLeft > 1) {
+    ion.sound.play("error-sound");
     gameMaths._decreaseAttemptsLeft();
     deleteResult();
     document.getElementById('value-attempts').innerHTML = gameMaths.attemptsLeft;
@@ -101,6 +119,7 @@ function resultIncorrect() {
 
 function resultCorrect() {
   cancelTimer = true;
+  ion.sound.play("correct-answer");
   nextRound();
   gameMaths._increaseScore();
   checkNextLevel();
@@ -125,14 +144,15 @@ function nextRound() {
 }
 
 function brainAge() {
- if (gameMaths.level > 0 && gameMaths.level < 5) {
-  document.getElementById('brain-age').innerHTML = "You should train more";
-} else if (gameMaths.level >= 5 && gameMaths.level <= 7) {
-  document.getElementById('brain-age').innerHTML = "Your brain is in good shape";
-} else if (gameMaths.level > 7) {
-  document.getElementById('brain-age').innerHTML = "Your brain is like Einstein 's!";
+  if (gameMaths.level > 0 && gameMaths.level < 5) {
+    document.getElementById('brain-age').innerHTML = "You should train more";
+  } else if (gameMaths.level >= 5 && gameMaths.level <= 7) {
+    document.getElementById('brain-age').innerHTML = "Your brain is in good shape";
+  } else if (gameMaths.level > 7) {
+    document.getElementById('brain-age').innerHTML = "Your brain is like Einstein 's!";
+  }
 }
-}
+
 function visualizeInitialElements(activeOperationObj, queue1OperationObj, queue2OperationObj) {
   document.getElementById('active-value1').innerHTML = gameMaths.actualValue;
   document.getElementById('active-value2').innerHTML = activeOperationObj.value2;
@@ -191,6 +211,7 @@ function cleanNotebook() {
 
 function gameOver() {
   cleanNotebook();
+  ion.sound.play("failure-trumpet");
   var playButton = document.getElementById('play-maths');
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');

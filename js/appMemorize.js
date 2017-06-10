@@ -9,12 +9,16 @@ function loadSounds() {
     sounds: [{
       name: "bell_ring"
     }, {
-      name: "tap"
+      name: "correct-answer"
+    }, {
+      name: "error-sound"
+    }, {
+      name: "failure-trumpet"
     }],
 
     path: "lib/sounds/",
     preload: true,
-    volume: 4.0
+    volume: 3.0
   });
 }
 
@@ -57,6 +61,7 @@ function checkUserInput() {
     this.classList.remove("tachon");
     this.classList.add("correct");
   } else {
+    ion.sound.play("error-sound");
     this.classList.remove("tachon");
     this.classList.add("error");
     this.innerHTML = "X";
@@ -69,7 +74,7 @@ function checkUserInput() {
   gameNumbers._increaseClicks();
 
   if (gameNumbers.numberClicks == gameNumbers.lengthSequence && gameNumbers.attemptsLeft > 1) {
-    ion.sound.play("snap");
+    ion.sound.play("correct-answer");
     setTimeout(nextLevel, 1000);
   }
 }
@@ -153,6 +158,7 @@ function countDown() {
 
 function gameOver() {
   cleanNotebook();
+  ion.sound.play("failure-trumpet");
   var playButton = document.getElementById('play-memorize');
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');
