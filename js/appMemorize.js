@@ -1,21 +1,22 @@
 window.onload = function() {
   var playButton = document.getElementById('play-memorize');
   playButton.onclick = playOrQuit;
-
-  function loadSounds() {
-    ion.sound({
-      sounds: [{
-        name: "bell_ring"
-      }, {
-        name: "tap"
-      }],
-
-      path: "../lib/ion.sound-3.0.7/sounds/",
-      preload: true,
-      volume: 100.0
-    });
-  }
+loadSounds();
 };
+
+function loadSounds() {
+  ion.sound({
+    sounds: [{
+      name: "bell_ring"
+    }, {
+      name: "tap"
+    }],
+
+    path: "../lib/ion.sound-3.0.7/sounds/",
+    preload: true,
+    volume: 100.0
+  });
+}
 
 function playOrQuit() {
   var playButton = document.getElementById('play-memorize');
