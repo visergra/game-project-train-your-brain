@@ -69,6 +69,7 @@ function checkUserInput() {
   gameNumbers._increaseClicks();
 
   if (gameNumbers.numberClicks == gameNumbers.lengthSequence && gameNumbers.attemptsLeft > 1) {
+    ion.sound.play("snap");
     setTimeout(nextLevel, 1000);
   }
 }
