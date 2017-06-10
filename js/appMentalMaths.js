@@ -122,13 +122,17 @@ function nextRound() {
   deleteResult();
   visualizeRoundElements(activeOperationObj, queue1OperationObj, queue2OperationObj);
   timerRound();
-
 }
 
 function brainAge() {
-
+ if (gameMaths.level > 0 && gameMaths.level < 5) {
+  document.getElementById('brain-age').innerHTML = "You should train more";
+} else if (gameMaths.level >= 5 && gameMaths.level <= 7) {
+  document.getElementById('brain-age').innerHTML = "Your brain is in good shape";
+} else if (gameMaths.level > 7) {
+  document.getElementById('brain-age').innerHTML = "Your brain is like Einstein 's!";
 }
-
+}
 function visualizeInitialElements(activeOperationObj, queue1OperationObj, queue2OperationObj) {
   document.getElementById('active-value1').innerHTML = gameMaths.actualValue;
   document.getElementById('active-value2').innerHTML = activeOperationObj.value2;
@@ -191,6 +195,7 @@ function gameOver() {
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');
   gameOverDiv.classList.add('active');
+  brainAge();
 }
 
 function quitGame() {

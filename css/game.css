@@ -91,6 +91,7 @@ a {
   border-bottom: 0 solid transparent;
   border-left: 100px solid transparent;
   margin: 10px auto 0 auto;
+  animation: blink 1.2s infinite 200ms;
 }
 
 #train-brain-title {
@@ -235,6 +236,7 @@ a {
   font-family: drawing;
   font-size: 60px;
   margin-top: 40px;
+  padding-right: 20px;
 }
 
 .tachon {
@@ -247,6 +249,11 @@ a {
 .error {
   color: red;
   border-color: red;
+}
+
+.correct {
+  color: green;
+  border-color: green;
 }
 
 
@@ -330,6 +337,10 @@ a {
   line-height: 35px;
 }
 
+#send-button {
+  animation: blink 1s infinite 200ms;
+}
+
 .cell-del {
   color: red;
   font-family: Arial;
@@ -346,7 +357,7 @@ a {
   padding-top: 8px;
   text-align: center;
   vertical-align: middle;
--webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
   -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
@@ -504,6 +515,15 @@ a {
   left: 50%;
   margin-left: -260px;
   visibility: hidden;
+}
+
+#brain-age {
+  font-family: funsized;
+  font-size: 40px;
+  width: 500px;
+  text-align: center;
+  padding-top: 20px;
+  margin: 0 auto;
 }
 
 .active {

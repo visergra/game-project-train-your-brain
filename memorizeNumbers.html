@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/game.css">
-    <title>Memorize Numbers</title>
-  </head>
-  <body>
-    <h1 id="memorize-title">Memorize Numbers</h1>
-    <div id=body>
-      <article id="game-board">
-        <div id="info-game">
-          <span id="label-level">Level</span><span id="value-level">1</span><span id="label-attempts">Attempts</span><span id="value-attempts">3</span>
-        </div>
-        <div class="row">
-          <div class="cell" id="0-0"></div>
-          <div class="cell" id="0-1"></div>
-          <div class="cell" id="0-2"></div>
-          <div class="cell" id="0-3"></div>
-          <div class="cell" id="0-4"></div>
-          <div class="cell" id="0-5"></div>
-        </div>
-        <div class="row">
-          <div class="cell" id="1-0"></div>
-          <div class="cell" id="1-1"></div>
-          <div class="cell" id="1-2"></div>
-          <div class="cell" id="1-3"></div>
-          <div class="cell" id="1-4"></div>
-          <div class="cell" id="1-5"></div>
-        </div>
-        <div class="row">
-          <div class="cell" id="2-0"></div>
-          <div class="cell" id="2-1"></div>
-          <div class="cell" id="2-2"></div>
-          <div class="cell" id="2-3"></div>
-          <div class="cell" id="2-4"></div>
-          <div class="cell" id="2-5"></div>
-        </div>
-        <div class="row">
-          <div class="cell" id="3-0"></div>
-          <div class="cell" id="3-1"></div>
-          <div class="cell" id="3-2"></div>
-          <div class="cell" id="3-3"></div>
-          <div class="cell" id="3-4"></div>
-          <div class="cell" id="3-5"></div>
-        </div>
-        <div class="row">
-          <div class="cell" id="4-0"></div>
-          <div class="cell" id="4-1"></div>
-          <div class="cell" id="4-2"></div>
-          <div class="cell" id="4-3"></div>
-          <div class="cell" id="4-4"></div>
-          <div class="cell" id="4-5"></div>
-        </div>
-        <div class="row">
-          <div class="cell" id="5-0"></div>
-          <div class="cell" id="5-1"></div>
-          <div class="cell" id="5-2"></div>
-          <div class="cell" id="5-3"></div>
-          <div class="cell" id="5-4"></div>
-          <div class="cell" id="5-5"></div>
-        </div>
-        <div class="countdown">4</div>
-        <div class="game-over">GAME OVER!</div>
-      </article>
-    </div>
-    <p id="play-memorize">PLAY</p>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.js"></script>
-    <script src="js/gameMemorize.js"></script>
-    <script src="js/appMemorize.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/game.css">
+  <title>Memorize Numbers</title>
+</head>
+
+<body>
+  <h1 id="memorize-title">Memorize Numbers</h1>
+  <div id=body>
+    <article id="game-board">
+      <div id="info-game">
+        <span id="label-level">Level</span><span id="value-level">1</span><span id="label-attempts">Attempts</span><span id="value-attempts">3</span>
+      </div>
+      <div class="row">
+        <div class="cell" id="0-0"></div>
+        <div class="cell" id="0-1"></div>
+        <div class="cell" id="0-2"></div>
+        <div class="cell" id="0-3"></div>
+        <div class="cell" id="0-4"></div>
+        <div class="cell" id="0-5"></div>
+      </div>
+      <div class="row">
+        <div class="cell" id="1-0"></div>
+        <div class="cell" id="1-1"></div>
+        <div class="cell" id="1-2"></div>
+        <div class="cell" id="1-3"></div>
+        <div class="cell" id="1-4"></div>
+        <div class="cell" id="1-5"></div>
+      </div>
+      <div class="row">
+        <div class="cell" id="2-0"></div>
+        <div class="cell" id="2-1"></div>
+        <div class="cell" id="2-2"></div>
+        <div class="cell" id="2-3"></div>
+        <div class="cell" id="2-4"></div>
+        <div class="cell" id="2-5"></div>
+      </div>
+      <div class="row">
+        <div class="cell" id="3-0"></div>
+        <div class="cell" id="3-1"></div>
+        <div class="cell" id="3-2"></div>
+        <div class="cell" id="3-3"></div>
+        <div class="cell" id="3-4"></div>
+        <div class="cell" id="3-5"></div>
+      </div>
+      <div class="row">
+        <div class="cell" id="4-0"></div>
+        <div class="cell" id="4-1"></div>
+        <div class="cell" id="4-2"></div>
+        <div class="cell" id="4-3"></div>
+        <div class="cell" id="4-4"></div>
+        <div class="cell" id="4-5"></div>
+      </div>
+      <div class="row">
+        <div class="cell" id="5-0"></div>
+        <div class="cell" id="5-1"></div>
+        <div class="cell" id="5-2"></div>
+        <div class="cell" id="5-3"></div>
+        <div class="cell" id="5-4"></div>
+        <div class="cell" id="5-5"></div>
+      </div>
+      <div class="countdown">4</div>
+      <div class="game-over">GAME OVER!
+        <p id="brain-age"></p>
+      </div>
+    </article>
+  </div>
+  <div id="play-memorize">PLAY</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.js"></script>
+  <script src="js/gameMemorize.js"></script>
+  <script src="js/appMemorize.js"></script>
+  <script type="text/javascript" src="lib/ion.sound-3.0.7/ion.sound.min.js"></script>
+</body>
+
 </html>

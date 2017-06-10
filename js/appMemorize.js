@@ -1,6 +1,20 @@
 window.onload = function() {
   var playButton = document.getElementById('play-memorize');
   playButton.onclick = playOrQuit;
+
+  function loadSounds() {
+    ion.sound({
+      sounds: [{
+        name: "bell_ring"
+      }, {
+        name: "tap"
+      }],
+
+      path: "../lib/ion.sound-3.0.7/sounds/",
+      preload: true,
+      volume: 100.0
+    });
+  }
 };
 
 function playOrQuit() {
@@ -40,6 +54,7 @@ function checkUserInput() {
   var discoveredNumber = this.innerHTML;
   if (discoveredNumber == gameNumbers.sequence[gameNumbers.numberClicks]) {
     this.classList.remove("tachon");
+    this.classList.add("correct");
   } else {
     this.classList.remove("tachon");
     this.classList.add("error");
@@ -81,8 +96,15 @@ function prevLevel() {
 }
 
 function brainAge() {
-
+  if (gameMaths.level > 0 && gameMaths.level < 5) {
+    document.getElementById('brain-age').innerHTML = "You should train more";
+  } else if (gameMaths.level >= 5 && gameMaths.level <= 7) {
+    document.getElementById('brain-age').innerHTML = "Your brain is in good shape";
+  } else if (gameMaths.level > 7) {
+    document.getElementById('brain-age').innerHTML = "Your brain is like Einstein 's!";
+  }
 }
+
 
 
 function playGame() {
@@ -104,6 +126,7 @@ function cleanNotebook() {
       numberContainer.classList.remove('active');
       numberContainer.classList.remove('tachon');
       numberContainer.classList.remove('error');
+      numberContainer.classList.remove('correct');
       numberContainer.innerHTML = '';
     });
   });
@@ -122,6 +145,7 @@ function countDown() {
   }
   seconds--;
   countDownDiv.innerHTML = seconds;
+  ion.sound.play("bell_ring");
   timeoutCountDown = setTimeout(countDown, 1000);
 }
 
@@ -131,6 +155,7 @@ function gameOver() {
   playButton.innerHTML = 'PLAY';
   var gameOverDiv = document.querySelector('.game-over');
   gameOverDiv.classList.add('active');
+  brainAge();
 }
 
 function quitGame() {
