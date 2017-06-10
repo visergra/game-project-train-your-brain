@@ -12,7 +12,7 @@ function loadSounds() {
       name: "tap"
     }],
 
-    path: "../lib/ion.sound-3.0.7/sounds/",
+    path: "../lib/sounds/",
     preload: true,
     volume: 4.0
   });
